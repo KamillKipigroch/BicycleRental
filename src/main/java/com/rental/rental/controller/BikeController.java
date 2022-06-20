@@ -19,13 +19,13 @@ public class BikeController {
         return  repository.findAll();
     }
 
-    @PostMapping("/bikes")
+    @PostMapping("/add-bike")
     Bike newBike(@RequestBody Bike newBike){
         return repository.save(newBike);
     }
 
-    @PutMapping
-    Bike replaceBike(@RequestBody Bike newBike, @PathVariable Long id){
+    @PutMapping("/edit-bike")
+    Bike editBike(@RequestBody Bike newBike, @PathVariable Long id){
         return  repository.findById(id)
                 .map(bike -> {
                     bike.setBrand(newBike.getBrand());

@@ -21,7 +21,8 @@ public class LoadDatabase {
         return args -> {
             log.info("Preloading " + bikeRepository.save(new Bike("Radon", "Jealous AL 9.0 MS")));
             log.info("Preloading " + bikeRepository.save(new Bike("Cube", "Stereo Hybrid 120 TM 750 29 flashgrey´n´olive")));
-
+            log.info("Preloading " + stationRepository.save(new Station(null)));
+            log.info("Preloading " + stationRepository.save(new Station(null)));
         };
     }
 }

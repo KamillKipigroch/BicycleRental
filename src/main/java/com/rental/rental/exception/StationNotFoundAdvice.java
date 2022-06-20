@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @ControllerAdvice
 class StationNotFoundAdvice {
     @ResponseBody
-    @ExceptionHandler(BikeNotFoundException.class)
+    @ExceptionHandler(StationNotFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
     String stationNotFoundGHandler(StationNotFoundException ex){
         return ex.getMessage();
