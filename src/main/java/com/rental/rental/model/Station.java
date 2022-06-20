@@ -23,8 +23,8 @@ public class Station {
     @Override
     public String toString(){
         return  String.format(
-                "Bike[id=%d, bike=%s]",
-                id, Objects.toString(bike.toString(), "isEmpty"));
+                "Station[id=%d, bike=%s]",
+                id, Objects.toString(bike, "isEmpty"));
     }
 
     public Long getId(){

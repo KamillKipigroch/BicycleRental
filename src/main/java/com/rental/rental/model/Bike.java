@@ -13,6 +13,7 @@ public class Bike {
     private Long id;
     private String brand;
     private String model;
+
     @OneToOne(mappedBy = "bike")
     private Station station;
 
@@ -32,6 +33,9 @@ public class Bike {
     public Long getId(){
         return  this.id;
     }
+    public void setId(Long id){
+        this.id = id;
+    }
 
     public String getBrand(){
         return this.brand;
@@ -47,9 +51,7 @@ public class Bike {
     public void setModel(String model){
         this.model = model;
     }
-    public void setId(Long id){
-        this.id = id;
-    }
+
     @Override
     public boolean equals(Object o){
         if(this == o)
