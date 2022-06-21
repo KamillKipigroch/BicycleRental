@@ -1,4 +1,4 @@
-package com.rental.rental.exception;
+package com.rental.rental.exceptions;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -7,11 +7,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ControllerAdvice
-class BikeNotFoundAdvice {
+class StationNotFoundAdvice {
     @ResponseBody
-    @ExceptionHandler(BikeNotFoundException.class)
+    @ExceptionHandler(StationNotFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
-    String bikeNotFoundGHandler(BikeNotFoundException ex){
+    String stationNotFoundGHandler(StationNotFoundException ex){
         return ex.getMessage();
     }
 }
