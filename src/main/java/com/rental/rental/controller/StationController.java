@@ -5,7 +5,6 @@ import com.rental.rental.model.Station;
 import com.rental.rental.repository.BikeRepository;
 import com.rental.rental.repository.StationRepository;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 import java.util.Optional;
 
