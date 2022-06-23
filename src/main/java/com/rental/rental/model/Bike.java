@@ -17,7 +17,7 @@ public class Bike {
     @OneToOne(mappedBy = "bike")
     private Station station;
 
-    protected  Bike (){}
+    public Bike(){}
     public Bike(String make, String model){
         this.brand = make;
         this.model = model;
