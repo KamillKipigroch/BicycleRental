@@ -1,5 +1,5 @@
 
-package com.rental.rental.soap.format;
+package com.rental.rental.soap.courses;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;

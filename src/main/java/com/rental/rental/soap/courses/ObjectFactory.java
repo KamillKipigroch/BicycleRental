@@ -1,9 +1,7 @@
 
-package com.rental.rental.soap.format;
+package com.rental.rental.soap.courses;
 
 import com.rental.rental.model.Bike;
-import com.rental.rental.soap.format.GetBike;
-import com.rental.rental.soap.format.GetResponse;
 
 import javax.xml.bind.annotation.XmlRegistry;
 
