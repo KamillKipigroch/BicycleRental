@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           xmlns:tns="http://rental-bike.pl/soap/bike"
-           targetNamespace="http://rental-bike.pl/soap/bike">
+           xmlns:tns="http://rental-bike.pl/soap/station"
+           targetNamespace="http://rental-bike.pl/soap/station">
 
-    <xs:element name="AddBikeRequest">
+    <xs:element name="AddStationRequest">
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="bike" type="tns:Bike"/>
@@ -11,16 +11,16 @@
         </xs:complexType>
     </xs:element>
 
-    <xs:element name="AddBikeResponse">
+    <xs:element name="AddStationResponse">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="bike" type="tns:Bike"/>
+                <xs:element name="station" type="tns:Station"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
 
 
-    <xs:element name="GetBikeRequest">
+    <xs:element name="GetStationRequest">
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="id" type="xs:long"/>
@@ -28,15 +28,15 @@
         </xs:complexType>
     </xs:element>
 
-    <xs:element name="GetBikeResponse">
+    <xs:element name="GetStationResponse">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="bike" type="tns:Bike"/>
+                <xs:element name="station" type="tns:Station"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
 
-    <xs:element name="DeleteBikeRequest">
+    <xs:element name="DeleteStationRequest">
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="id" type="xs:long"/>
@@ -44,7 +44,7 @@
         </xs:complexType>
     </xs:element>
 
-    <xs:element name="DeleteBikeResponse">
+    <xs:element name="DeleteStationResponse">
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="status" type="tns:Status" />
@@ -52,18 +52,51 @@
         </xs:complexType>
     </xs:element>
 
-    <xs:element name="EditBikeRequest">
+    <xs:element name="EditStationRequest">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="bike" type="tns:Bike"/>
+                <xs:element name="station" type="tns:Station"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
 
-    <xs:element name="EditBikeResponse">
+    <xs:element name="EditStationResponse">
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="status" type="tns:Status" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="RentBikeRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="idStation" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="RentBikeResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="bike" type="tns:Bike" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="ReturnBikeRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="idStation" type="xs:long"/>
+                <xs:element name="idBike" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="ReturnBikeResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="station" type="tns:Station" />
             </xs:sequence>
         </xs:complexType>
     </xs:element>
@@ -81,6 +114,13 @@
             <xs:element name="id" type="xs:long"/>
             <xs:element name="brand" type="xs:string"/>
             <xs:element name="model" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Station">
+        <xs:sequence>
+            <xs:element name="id" type="xs:long"/>
+            <xs:element name="bike" type="tns:Bike"/>
         </xs:sequence>
     </xs:complexType>
 </xs:schema>

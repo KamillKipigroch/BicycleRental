@@ -24,7 +24,7 @@ public class BikeController {
         return repository.save(newBike);
     }
 
-    @PutMapping("/edit-bike")
+    @PutMapping("/edit-bike/{id}")
     Bike editBike(@RequestBody Bike newBike, @PathVariable Long id){
         return  repository.findById(id)
                 .map(bike -> {

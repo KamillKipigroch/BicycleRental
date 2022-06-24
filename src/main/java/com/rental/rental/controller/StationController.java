@@ -53,4 +53,17 @@ public class StationController {
                     return repository.save(station);
                 });
     }
+
+    @PutMapping("/edit-station/{id}")
+    Station editStation(@RequestBody Station newStation, @PathVariable Long id){
+        return  repository.findById(id)
+                .map(station -> {
+                    station.setBike(newStation.getBike());
+                    return repository.save((station));
+                })
+                .orElseGet(() -> {
+                    newStation.setId(id);
+                    return repository.save((newStation));
+                });
+    }
 }

@@ -15,7 +15,7 @@ public class Station {
     @JoinColumn(name = "bike_id", referencedColumnName = "id")
     private Bike bike;
 
-    protected  Station (){}
+    public Station(){}
     public Station(Bike bike){
         this.bike = bike;
     }
