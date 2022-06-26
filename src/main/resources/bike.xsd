@@ -79,7 +79,7 @@
     <xs:complexType name="Bike">
         <xs:sequence>
             <xs:element name="id" type="xs:long"/>
-            <xs:element name="brand" type="xs:string"/>
+            <xs:element name="make" type="xs:string"/>
             <xs:element name="model" type="xs:string"/>
         </xs:sequence>
     </xs:complexType>
