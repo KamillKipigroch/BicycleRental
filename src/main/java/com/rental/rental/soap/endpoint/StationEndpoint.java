@@ -7,6 +7,8 @@ import com.rental.rental.repository.BikeRepository;
 import com.rental.rental.repository.StationRepository;
 import com.rental.rental.soap.bike.delete.DeleteBikeRequest;
 import com.rental.rental.soap.bike.delete.DeleteBikeResponse;
+import com.rental.rental.soap.bike.edit.EditBikeRequest;
+import com.rental.rental.soap.bike.edit.EditBikeResponse;
 import com.rental.rental.soap.station.add.AddStationRequest;
 import com.rental.rental.soap.station.add.AddStationResponse;
 import com.rental.rental.soap.station.edit.EditStationRequest;
@@ -39,7 +41,7 @@ public class StationEndpoint {
     @ResponsePayload
     public AddStationResponse addStation(@RequestPayload AddStationRequest request) {
 
-        Bike newBike = new Bike(request.getBike().getMake(),request.getBike().getModel());
+        Bike newBike = new Bike(request.getBike().getBrand(),request.getBike().getModel());
         bikeRepository.save(newBike);
 
         Station station = new Station(newBike);
@@ -109,7 +111,9 @@ public class StationEndpoint {
                     stationRepository.save(station);
                     return  response;
                 })
-                .orElse(response);
+                .orElseGet( () -> {
+                    return response;
+                });
     }
 
     @PayloadRoot(namespace = "https://rental-bike.pl/soap/station", localPart = "ReturnBikeRequest")
@@ -128,7 +132,10 @@ public class StationEndpoint {
 
                     return  response;
                 })
-                .orElse(response);
+                .orElseGet( () -> {
+
+                    return response;
+                });
     }
 
     private Status mapStatus(Status status) {
