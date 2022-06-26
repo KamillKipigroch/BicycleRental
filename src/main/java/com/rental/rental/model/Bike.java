@@ -1,17 +1,15 @@
 package com.rental.rental.model;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
 @Entity
-@Table(name = "Bike")
+@Table
 public class Bike {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String brand;
+    private String make;
     private String model;
 
     @OneToOne(mappedBy = "bike")
@@ -19,7 +17,7 @@ public class Bike {
 
     public Bike(){}
     public Bike(String make, String model){
-        this.brand = make;
+        this.make = make;
         this.model = model;
     }
 
@@ -27,7 +25,7 @@ public class Bike {
     public String toString(){
         return  String.format(
                 "Bike[id=%d, make='%s', model='%s']",
-                id, brand, model);
+                id, make, model);
     }
 
     public Long getId(){
@@ -37,11 +35,11 @@ public class Bike {
         this.id = id;
     }
 
-    public String getBrand(){
-        return this.brand;
+    public String getMake(){
+        return this.make;
     }
-    public void setBrand(String brand){
-        this.brand = brand;
+    public void setMake(String brand){
+        this.make = brand;
     }
 
     public String getModel(){
@@ -58,11 +56,11 @@ public class Bike {
             return  true;
         if(!(o instanceof Bike bike))
             return  false;
-        return Objects.equals(this.id, bike.id) && Objects.equals(this.brand, bike.brand) && Objects.equals(this.model, bike.model);
+        return Objects.equals(this.id, bike.id) && Objects.equals(this.make, bike.make) && Objects.equals(this.model, bike.model);
     }
 
     @Override
     public int hashCode(){
-        return Objects.hash(this.id, this.brand, this.model);
+        return Objects.hash(this.id, this.make, this.model);
     }
 }

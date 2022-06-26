@@ -31,7 +31,7 @@ public class BikeEndpoint {
     @ResponsePayload
     public AddBikeResponse addBike(@RequestPayload AddBikeRequest request) {
 
-        Bike bike = new Bike(request.getBrand(), request.getModel());
+        Bike bike = new Bike(request.getMake(), request.getModel());
         bikeRepository.save(bike);
         AddBikeResponse response = new AddBikeResponse();
         response.setBike(bike);
@@ -58,7 +58,7 @@ public class BikeEndpoint {
 
         return bikeRepository.findById(request.getBike().getId())
                 .map(bike -> {
-                    bike.setBrand(request.getBike().getBrand());
+                    bike.setMake(request.getBike().getMake());
                     bike.setModel(request.getBike().getModel());
                     bikeRepository.save(bike);
 

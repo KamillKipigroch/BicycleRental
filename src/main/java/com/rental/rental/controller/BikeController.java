@@ -28,7 +28,7 @@ public class BikeController {
     Bike editBike(@RequestBody Bike newBike, @PathVariable Long id){
         return  repository.findById(id)
                 .map(bike -> {
-                    bike.setBrand(newBike.getBrand());
+                    bike.setMake(newBike.getMake());
                     bike.setModel(newBike.getModel());
                     return repository.save((bike));
                 })
